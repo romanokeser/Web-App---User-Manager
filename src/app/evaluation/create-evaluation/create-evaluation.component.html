@@ -1,0 +1,35 @@
+<mat-card><p>Create / Edit  Evaluation</p>
+    <div style="width: 600px; margin: auto;">
+      <div class="submit-form">
+        <div *ngIf="!submitted">
+          <div class="form-group form-inline">
+            <label for="title">Criteria</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              required
+              [(ngModel)]="evaluation.title"
+              name="title"
+            />
+            <label for="number"> % </label>
+            <input
+            type="number"
+            class="form-control"
+            id="number"
+            required
+            [(ngModel)]="evaluation.number"
+            name="number"
+          />
+          </div>
+         <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
+        </div>
+    
+        <div *ngIf="submitted">
+          <h4>You submitted successfully!</h4>
+          <button class="btn btn-success" (click)="newTutorial()">Add</button>
+          <button class="btn btn-success" (click)="refresh()">Refresh</button>
+        </div>
+      </div>
+    </div>
+    </mat-card>

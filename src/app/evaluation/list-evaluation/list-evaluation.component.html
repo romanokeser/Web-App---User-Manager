@@ -1,0 +1,45 @@
+<mat-card><p>Evaluation - LIST </p>
+  <div class="list row">
+
+    <div class="col-md-6">
+  
+      <ul class="list-group">
+        <li
+          class="list-group-item" *ngFor="let evaluation of evaluations; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveTutorial(evaluation, i)">
+             {{evaluation.title}}
+        </li>
+      </ul>
+      <button class="m-3 btn btn-sm btn-primary" [routerLink]="['/evaluationcreate/',id]">
+        Add Evaluation
+      </button>
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
+        Remove All
+      </button>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentEvaluation">
+        <h4>Tutorial</h4>
+        <div>
+          <label><strong>Criteria:</strong></label> {{ currentEvaluation.title }}
+        </div>
+        <div>
+          <label><strong>% :</strong></label>
+          {{ currentEvaluation.number }}
+        </div>
+  
+  
+        <a class="badge badge-warning" href="/evaluation/{{ currentEvaluation.id }}">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currentEvaluation">
+        <br />
+        <p>Please click on an Evaluation...</p>
+      </div>
+    </div>
+  </div>
+    
+    </mat-card>
