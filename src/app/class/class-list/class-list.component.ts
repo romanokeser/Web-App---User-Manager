@@ -13,14 +13,6 @@ import { Observable } from 'rxjs';
 })
 export class ClassListComponent implements OnInit, OnDestroy{
 
-  //Recieve Data Posts
-  @Input() posts: Post[] = [];
-  private postsSub: Subscription;
-  // storedPosts: Post[] = [];
-   // onPostAdded(post) {
-   //   console.log("postlist recieved");
-    //this.storedPosts.push(post);
-   // }
   constructor(private tutorialService: TutorialService,    private route: ActivatedRoute,
     private router: Router) { }
 
@@ -33,10 +25,12 @@ export class ClassListComponent implements OnInit, OnDestroy{
   count = 0;
   pageSize = 3;
   pageSizes = [3, 6, 9];
-
+  id =null;
   ngOnInit() {
-    this.retrieveTutorials();
-
+    //this.retrieveTutorials();
+    this.id = this.route.snapshot.paramMap.get('id');
+    console.log(this.id)
+    this.retrieveTutorials(this.route.snapshot.paramMap.get('id'));
 
     }
     //this.posts = this.postService.getPosts();
@@ -63,35 +57,46 @@ export class ClassListComponent implements OnInit, OnDestroy{
       return params;
     }
   
-    retrieveTutorials(): void {
-      const params = this.getRequestParams(this.title, this.page, this.pageSize);
-  
-      this.tutorialService.getAll(params)
-        .subscribe(
-          response => {
-            const { tutorials, totalItems } = response;
-            this.tutorials = tutorials;
-            this.count = totalItems;
-            console.log(response);
-          },
-          error => {
-            console.log(error);
-          });
+    retrieveTutorials(id): void {
+
+      this.tutorialService.findById(id)
+     .subscribe(
+       (data: any) => {
+         this.tutorials = data.tutorials;
+         console.log(data.tutorials);
+    
+       },
+       error => {
+         console.log(error);
+       });
+
+      // const params = this.getRequestParams(id, this.page, this.pageSize);
+      // this.tutorialService.getAll(params)
+      //   .subscribe(
+      //     response => {
+      //       const { tutorials, totalItems } = response;
+      //       this.tutorials = tutorials;
+      //       this.count = totalItems;
+      //       console.log(response);
+      //     },
+      //     error => {
+      //       console.log(error);
+      //     });
     }
   
     handlePageChange(event): void {
       this.page = event;
-      this.retrieveTutorials();
+      this.retrieveTutorials(this.id);
     }
   
     handlePageSizeChange(event): void {
       this.pageSize = event.target.value;
       this.page = 1;
-      this.retrieveTutorials();
+      this.retrieveTutorials(this.id);
     }
 
     refreshList(): void {
-      this.retrieveTutorials();
+      this.retrieveTutorials(this.id);
       this.currentTutorial = null;
       this.currentIndex = -1;
     }
@@ -108,7 +113,7 @@ export class ClassListComponent implements OnInit, OnDestroy{
         .subscribe(
           response => {
             console.log(response);
-            this.retrieveTutorials();
+            this.retrieveTutorials(this.id);
           },
           error => {
             console.log(error);

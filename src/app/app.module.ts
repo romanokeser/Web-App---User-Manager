@@ -20,13 +20,18 @@ import { DeleteEvaluationComponent } from './evaluation/delete-evaluation/delete
 import { InsertGradeComponent } from './grade/insert-grade/insert-grade.component';
 import { EditGradeComponent } from './grade/edit-grade/edit-grade.component';
 import { DeleteGradeComponent } from './grade/delete-grade/delete-grade.component';
-import { CreateNoteComponent } from './note/create-note/create-note.component';
-import { EditNoteComponent } from './note/edit-note/edit-note.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { UploadFilesComponent } from './components/upload-files/upload-files.component';
 import { ListEvaluationComponent } from './evaluation/list-evaluation/list-evaluation.component';
+import { StudentsComponent } from './students/students.component';
+import { StudentListComponent } from './students/student-list/student-list.component';
+import { StudentEditComponent } from './students/student-edit/student-edit.component';
+import { CourseComponent } from './course/course.component';
+import { AddCourseComponent } from './course/add-course/add-course.component';
+import { ListCourseComponent } from './course/list-course/list-course.component';
+import { EditCourseComponent } from './course/edit-course/edit-course.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,11 +48,16 @@ import { ListEvaluationComponent } from './evaluation/list-evaluation/list-evalu
     InsertGradeComponent,
     EditGradeComponent,
     DeleteGradeComponent,
-    CreateNoteComponent,
-    EditNoteComponent,
     ClassListComponent,
     UploadFilesComponent,
-    ListEvaluationComponent
+    ListEvaluationComponent,
+    StudentsComponent,
+    StudentListComponent,
+    StudentEditComponent,
+    CourseComponent,
+    AddCourseComponent,
+    ListCourseComponent,
+    EditCourseComponent
 
   ],
   imports: [

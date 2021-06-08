@@ -1,0 +1,69 @@
+<mat-card>
+    <div style="width: 400px; margin: auto;">
+        <div *ngIf="currentStudent" class="edit-form">
+          <h4>Students Details</h4>
+          <form>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                [(ngModel)]="currentStudent.name"
+                name="name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="lastname"> Lastname </label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastname"
+                [(ngModel)]="currentStudent.lastname"
+                name="lastname"
+              />
+            </div>
+            <div class="form-group">
+              <label for="note"> Note </label>
+              <input
+                type="text"
+                class="form-control"
+                id="note"
+                [(ngModel)]="currentStudent.note"
+                name="note"
+              />
+            </div>
+            <div class="form-group">
+              <label for="grade"> Grade </label>
+              <input
+                type="number"
+                class="form-control"
+                id="grade"
+                [(ngModel)]="currentStudent.grade"
+                name="grade"
+              />
+            </div>
+          </form>
+      
+             <!-- ADD CV -->
+      
+          <button class="badge badge-danger mr-2" (click)="deleteTutorial()">
+            Delete
+          </button>
+      
+          <button
+            type="submit"
+            class="badge badge-success"
+            (click)="updateTutorial()"
+          >
+            Update
+          </button>
+          <p>{{ message }}</p>
+        </div>
+      
+        <div *ngIf="!currentStudent">
+          <br />
+          <p>Cannot access this Class...</p>
+        </div>
+      </div>
+    </mat-card>

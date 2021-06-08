@@ -2,17 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const baseUrl = 'http://localhost:8080/api/tutorials';
+const baseUrl = 'http://localhost:8080/api/courses';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TutorialService {
+export class CourseService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(id)  {
-    return this.http.get(baseUrl);
+  getAll(params): Observable<any> {
+    return this.http.get(baseUrl, { params });
   }
 
   get(id): Observable<any> {
@@ -37,8 +37,5 @@ export class TutorialService {
 
   findByTitle(title): Observable<any> {
     return this.http.get(`${baseUrl}?title=${title}`);
-  }
-  findById(id): Observable<any> {
-    return this.http.get(`${baseUrl}?id=${id}`);
   }
 }

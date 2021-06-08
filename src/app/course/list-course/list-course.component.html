@@ -1,0 +1,109 @@
+<mat-card><p>COURSE - LIST </p>
+    <div class="list row">
+      <div class="col-md-8">
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search by title"
+            [(ngModel)]="title"
+          />
+     
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              (click)="retrieveTutorials()">
+              Search
+            </button>
+         
+        </div>
+      </div>
+    
+      <div class="col-md-8">
+        <pagination-controls
+          previousLabel="Prev"
+          nextLabel="Next"
+          responsive="true"
+          (pageChange)="handlePageChange($event)"
+        ></pagination-controls>
+      </div>
+    
+      <div class="col-md-6">
+       
+    
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="
+              let course of courses | paginate : {
+                      itemsPerPage: pageSize,
+                      currentPage: page,
+                      totalItems: count
+                    };
+              let i = index"
+            [class.active]="i == currentIndex"
+            (click)="setActiveTutorial(course, i)"
+          >
+            {{ course.title }} 
+           
+            <ul>
+            <a [routerLink]="['/course/:id',course.id]"></a>
+          </ul>
+          </li>
+        </ul>
+      </div>
+    
+    
+      <div class="mt-3">
+    
+        Items per Page:
+        <select (change)="handlePageSizeChange($event)">
+          <option *ngFor="let size of pageSizes" [ngValue]="size">
+            {{ size }}
+          </option>
+        </select>
+     
+        <button class="m-3 btn btn-sm btn-primary" routerLink="/course">
+          Add Course
+        </button>
+    
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
+      Remove All
+    </button>
+    </div>
+    </div>
+    <div class="col-md-6">
+    <div *ngIf="currentTutorial">
+      <h4>Class</h4>
+      <div>
+        <label><strong>Title:</strong></label> {{ currentTutorial.title }}
+      </div>
+      <div>
+        <label><strong>Description:</strong></label>
+        {{ currentTutorial.description }}
+      </div>
+      <div>
+        <label><strong>Year:</strong></label>
+        {{ currentTutorial.year }}
+      </div>
+      <div>
+        <label><strong>Status:</strong></label>
+        {{ currentTutorial.published ? "Published" : "Pending" }}
+      </div>
+      <!-- routerLink="/tutorials/{{currentTutorial.id}}"-->
+      <a class="badge badge-warning"     routerLink="/editcourse/{{currentTutorial.id}} ">
+        <button>Edit</button>
+      </a>
+      <a class="badge badge-warning"     routerLink="/classlist/{{currentTutorial.id}} ">
+        <button>Show Classes</button>
+      </a>
+    </div>
+    
+    <div *ngIf="!currentTutorial">
+      <br />
+      <p>Please click on a Course ...</p>
+    </div>
+    </div>
+    
+    
+    </mat-card>

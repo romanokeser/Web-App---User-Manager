@@ -6,13 +6,12 @@
         type="text"
         class="form-control"
         placeholder="Search by title"
-        [(ngModel)]="title"
-      />
+        [(ngModel)]="title"/>
  
         <button
           class="btn btn-outline-secondary"
           type="button"
-          (click)="retrieveTutorials()">
+          (click)="retrieveTutorials(id)">
           Search
         </button>
      
@@ -29,7 +28,7 @@
   </div>
 
   <div class="col-md-6">
-    <h4>Class List</h4>
+   
 
     <ul class="list-group">
       <li
@@ -62,7 +61,11 @@
         {{ size }}
       </option>
     </select>
- 
+
+    <button class="m-3 btn btn-sm btn-primary" [routerLink]="['/addclass/',id]">
+      Add Class
+    </button>
+
 
 
 <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
@@ -79,6 +82,10 @@
   <div>
     <label><strong>Description:</strong></label>
     {{ currentTutorial.description }}
+  </div>
+  <div>
+    <label><strong>Note:</strong></label>
+    {{ currentTutorial.note }}
   </div>
   <div>
     <label><strong>Status:</strong></label>

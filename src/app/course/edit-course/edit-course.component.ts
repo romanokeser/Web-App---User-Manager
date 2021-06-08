@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { TutorialService } from '../../services/tutorial.service';
+import { CourseService } from '../../services/course.service';
 import { ActivatedRoute, Router, ParamMap} from '@angular/router';
-import { Tutorial } from '../..//models/tutorial.model';
+import { Course } from '../..//models/course.model';
+
 @Component({
-  selector: 'app-edit-class',
-  templateUrl: './edit-class.component.html',
-  styleUrls: ['./edit-class.component.css']
+  selector: 'app-edit-course',
+  templateUrl: './edit-course.component.html',
+  styleUrls: ['./edit-course.component.css']
 })
-export class EditClassComponent implements OnInit {
+export class EditCourseComponent implements OnInit {
 
   currentTutorial = null;
   message = '';
 
   constructor(
-    private tutorialService: TutorialService,
+    private courseService: CourseService,
     private route: ActivatedRoute,
     private router: Router) { }
 
@@ -28,7 +29,7 @@ export class EditClassComponent implements OnInit {
 
   getTutorial(id): void {
    
-    this.tutorialService.get(id)
+    this.courseService.get(id)
       .subscribe(
         data => {
           this.currentTutorial = data;
@@ -44,11 +45,11 @@ export class EditClassComponent implements OnInit {
     const data = {
       title: this.currentTutorial.title,
       description: this.currentTutorial.description,
-      note: this.currentTutorial.note,
+      year: this.currentTutorial.year,
       published: status
     };
 
-    this.tutorialService.update(this.currentTutorial.id, data)
+    this.courseService.update(this.currentTutorial.id, data)
       .subscribe(
         response => {
           this.currentTutorial.published = status;
@@ -60,7 +61,7 @@ export class EditClassComponent implements OnInit {
   }
 
   updateTutorial(): void {
-    this.tutorialService.update(this.currentTutorial.id, this.currentTutorial)
+    this.courseService.update(this.currentTutorial.id, this.currentTutorial)
       .subscribe(
         response => {
           console.log(response);
@@ -74,7 +75,7 @@ export class EditClassComponent implements OnInit {
   }
 
   deleteTutorial(): void {
-    this.tutorialService.delete(this.currentTutorial.id)
+    this.courseService.delete(this.currentTutorial.id)
       .subscribe(
         response => {
           console.log(response);

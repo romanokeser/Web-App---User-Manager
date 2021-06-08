@@ -1,0 +1,54 @@
+<mat-card><p>STUDENT - LIST </p>
+    <div class="list row">
+  
+      <div class="col-md-6">
+    
+        <ul class="list-group">
+          <li
+            class="list-group-item" *ngFor="let student of students; let i = index"
+            [class.active]="i == currentIndex"
+            (click)="setActiveTutorial(student, i)">
+               {{student.name}}
+          </li>
+        </ul>
+        <button class="m-3 btn btn-sm btn-primary" routerLink="/studentcreate">
+          Create Student
+        </button>
+        <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
+          Remove All
+        </button>
+      </div>
+      <div class="col-md-6">
+        <div *ngIf="currentStudent">
+          <h4>Student</h4>
+          <div>
+            <label><strong>Name :</strong></label> {{ currentStudent.name }}
+          </div>
+          <div>
+            <label><strong> Lastname :</strong></label>
+            {{ currentStudent.lastname }}
+          </div>
+          <div>
+            <label><strong> Note :</strong></label>
+            {{ currentStudent.note }}
+          </div>
+
+          <div>
+            <label><strong> Grade :</strong></label>
+            {{ currentStudent.grade }}
+          </div>
+    
+          <a class="badge badge-warning" href="/student/{{ currentStudent.id }}">
+            Edit
+          </a>
+ 
+        </div>
+    
+        <div *ngIf="!currentStudent">
+          <br />
+          <p>Please click on a Student...</p>
+        </div>
+      </div>
+    </div>
+      
+      </mat-card>

@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { TutorialService } from '../../services/tutorial.service';
+import { StudentService } from '../../services/students.service';
 import { ActivatedRoute, Router, ParamMap} from '@angular/router';
 import { Tutorial } from '../..//models/tutorial.model';
 @Component({
-  selector: 'app-edit-class',
-  templateUrl: './edit-class.component.html',
-  styleUrls: ['./edit-class.component.css']
+  selector: 'app-student-edit',
+  templateUrl: './student-edit.component.html',
+  styleUrls: ['./student-edit.component.css']
 })
-export class EditClassComponent implements OnInit {
+export class StudentEditComponent implements OnInit {
 
-  currentTutorial = null;
+  currentStudent = null;
   message = '';
 
   constructor(
-    private tutorialService: TutorialService,
+    private studentService: StudentService,
     private route: ActivatedRoute,
     private router: Router) { }
 
@@ -28,10 +28,10 @@ export class EditClassComponent implements OnInit {
 
   getTutorial(id): void {
    
-    this.tutorialService.get(id)
+    this.studentService.get(id)
       .subscribe(
         data => {
-          this.currentTutorial = data;
+          this.currentStudent = data;
           console.log(data);
         },
         error => {
@@ -40,31 +40,14 @@ export class EditClassComponent implements OnInit {
   }
 
   
-  updatePublished(status): void {
-    const data = {
-      title: this.currentTutorial.title,
-      description: this.currentTutorial.description,
-      note: this.currentTutorial.note,
-      published: status
-    };
 
-    this.tutorialService.update(this.currentTutorial.id, data)
-      .subscribe(
-        response => {
-          this.currentTutorial.published = status;
-          console.log(response);
-        },
-        error => {
-          console.log(error);
-        });
-  }
 
   updateTutorial(): void {
-    this.tutorialService.update(this.currentTutorial.id, this.currentTutorial)
+    this.studentService.update(this.currentStudent.id, this.currentStudent)
       .subscribe(
         response => {
           console.log(response);
-          this.message = 'The tutorial was updated successfully!';
+          this.message = 'The Evaluation was updated successfully!';
 
           window.location.reload();
         },
@@ -74,7 +57,7 @@ export class EditClassComponent implements OnInit {
   }
 
   deleteTutorial(): void {
-    this.tutorialService.delete(this.currentTutorial.id)
+    this.studentService.delete(this.currentStudent.id)
       .subscribe(
         response => {
           console.log(response);

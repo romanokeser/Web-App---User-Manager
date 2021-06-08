@@ -1,11 +1,12 @@
 
 <main>
 <mat-grid-list cols="2" rowHeight="1:1">
-        <mat-grid-tile><mat-grid-tile-header> Class List </mat-grid-tile-header><app-class-list></app-class-list></mat-grid-tile>
-        <mat-grid-tile><mat-grid-tile-header> Edit  Class </mat-grid-tile-header><router-outlet></router-outlet></mat-grid-tile>
-        <mat-grid-tile><mat-grid-tile-header> Evaluation List</mat-grid-tile-header></mat-grid-tile>
-        <mat-grid-tile><mat-grid-tile-header> Edit Evaluation </mat-grid-tile-header></mat-grid-tile>
-        <mat-grid-tile><mat-grid-tile-header> Grade List </mat-grid-tile-header></mat-grid-tile>
-        <mat-grid-tile><mat-grid-tile-header> Edit Grade </mat-grid-tile-header></mat-grid-tile>
+  
+        <mat-grid-tile><mat-grid-tile-header> Course List </mat-grid-tile-header><app-list-course></app-list-course></mat-grid-tile>
+
+        <mat-grid-tile><mat-grid-tile-header> Edit</mat-grid-tile-header></mat-grid-tile>
+
+        <mat-grid-tile><mat-grid-tile-header> Student List</mat-grid-tile-header><app-student-list></app-student-list></mat-grid-tile>
       </mat-grid-list>
 </main>
+<router-outlet></router-outlet>

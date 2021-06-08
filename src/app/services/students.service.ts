@@ -2,16 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const baseUrl = 'http://localhost:8080/api/tutorials';
+const baseUrl = 'http://localhost:8080/api/students';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TutorialService {
+export class StudentService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(id)  {
+  getAll(id) {
     return this.http.get(baseUrl);
   }
 
@@ -38,6 +38,7 @@ export class TutorialService {
   findByTitle(title): Observable<any> {
     return this.http.get(`${baseUrl}?title=${title}`);
   }
+
   findById(id): Observable<any> {
     return this.http.get(`${baseUrl}?id=${id}`);
   }
