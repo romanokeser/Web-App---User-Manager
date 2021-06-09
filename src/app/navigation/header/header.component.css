@@ -1,9 +1,9 @@
 a {
     text-decoration: none;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 a:hover, a:active{
-    color: lightgray;
+    color: rgb(47, 44, 59);
 }
 .navigation-items{
     list-style-type: none;

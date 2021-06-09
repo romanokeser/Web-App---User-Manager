@@ -4,9 +4,11 @@
   
         <mat-grid-tile><mat-grid-tile-header> Course List </mat-grid-tile-header><app-list-course></app-list-course></mat-grid-tile>
 
-        <mat-grid-tile><mat-grid-tile-header> Edit</mat-grid-tile-header></mat-grid-tile>
+        <mat-grid-tile><mat-grid-tile-header> Edit</mat-grid-tile-header><router-outlet></router-outlet></mat-grid-tile>
 
         <mat-grid-tile><mat-grid-tile-header> Student List</mat-grid-tile-header><app-student-list></app-student-list></mat-grid-tile>
-      </mat-grid-list>
+      
+        <mat-grid-tile><mat-grid-tile-header> CSV upload</mat-grid-tile-header><app-uploadfiles></app-uploadfiles></mat-grid-tile>
+      
+    </mat-grid-list>
 </main>
-<router-outlet></router-outlet>

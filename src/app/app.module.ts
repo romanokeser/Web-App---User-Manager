@@ -32,6 +32,7 @@ import { CourseComponent } from './course/course.component';
 import { AddCourseComponent } from './course/add-course/add-course.component';
 import { ListCourseComponent } from './course/list-course/list-course.component';
 import { EditCourseComponent } from './course/edit-course/edit-course.component';
+import { UploadfilesComponent } from './uploadfiles/uploadfiles.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +58,8 @@ import { EditCourseComponent } from './course/edit-course/edit-course.component'
     CourseComponent,
     AddCourseComponent,
     ListCourseComponent,
-    EditCourseComponent
+    EditCourseComponent,
+    UploadfilesComponent
 
   ],
   imports: [
