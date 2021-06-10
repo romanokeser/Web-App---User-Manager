@@ -17,6 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = require("./app/models");
+
 db.mongoose
   .connect(db.url, {
     useNewUrlParser: true,
@@ -30,6 +31,10 @@ db.mongoose
     process.exit();
   });
 
+
+
+  
+
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to students Manager" });
@@ -38,7 +43,8 @@ app.get("/", (req, res) => {
 require("./app/routes/turorial.routes")(app);
 require("./app/routes/evaluation.routes")(app);
 require("./app/routes/students.routes")(app);
-require("./app/routes/course.routes")(app);
+require("./app/routes/course.routes");
+require("./app/routes/web")(app);
 //set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

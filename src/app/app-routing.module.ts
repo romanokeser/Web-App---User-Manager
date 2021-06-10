@@ -9,7 +9,7 @@ import { AddCourseComponent} from './course/add-course/add-course.component'
 import { EditCourseComponent} from './course/edit-course/edit-course.component'
 import { ListCourseComponent} from './course/list-course/list-course.component'
 import { EditClassComponent } from './class/edit-class/edit-class.component';
-import { UploadCvComponent } from './upload-cv/upload-cv.component';
+
 import { EditEvaluationComponent } from './evaluation/edit-evaluation/edit-evaluation.component';
 import { ListEvaluationComponent } from './evaluation/list-evaluation/list-evaluation.component';
 import { StudentEditComponent } from './students/student-edit/student-edit.component';
@@ -36,7 +36,7 @@ const routes: Routes = [
   { path: 'editcourse/:id', component: EditCourseComponent},
   { path: 'course', component: AddCourseComponent},
   { path: 'courselist', component: ListCourseComponent},
-  { path: 'upload', component: UploadCvComponent}
+
 
 ];
 

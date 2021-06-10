@@ -8,6 +8,8 @@ import { NgForm } from "@angular/forms";
 import { PostsService } from '../posts.service';
 import { MaterialModule } from '../../material/material.module';
 import { TutorialService } from '../../services/tutorial.service';
+
+
 @Component({
   selector: 'app-add-class',
   templateUrl: './add-class.component.html',

@@ -27,6 +27,12 @@ export class UploadfilesComponent implements OnInit {
     this.selectedFiles = event.target.files;
   }
 
+
+
+  newTutorial(): void {
+      console.log('my nigga');
+  }
+
   upload(): void {
     this.progress = 0;
   

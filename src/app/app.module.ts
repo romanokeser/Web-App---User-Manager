@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule} from './material/material.module';
-import { RoutingModule } from './routing/routing.module';
+
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { AddClassComponent } from './class/add-class/add-class.component';
@@ -13,7 +13,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClassListComponent } from './class/class-list/class-list.component';
 import { DeleteClassComponent } from './class/delete-class/delete-class.component';
 import { EditClassComponent } from './class/edit-class/edit-class.component';
-import { UploadCvComponent } from './upload-cv/upload-cv.component';
 import { CreateEvaluationComponent } from './evaluation/create-evaluation/create-evaluation.component';
 import { EditEvaluationComponent } from './evaluation/edit-evaluation/edit-evaluation.component';
 import { DeleteEvaluationComponent } from './evaluation/delete-evaluation/delete-evaluation.component';
@@ -42,7 +41,7 @@ import { UploadfilesComponent } from './uploadfiles/uploadfiles.component';
     DashboardComponent,
     DeleteClassComponent,
     EditClassComponent,
-    UploadCvComponent,
+
     CreateEvaluationComponent,
     EditEvaluationComponent,
     DeleteEvaluationComponent,

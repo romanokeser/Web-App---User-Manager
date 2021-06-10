@@ -4,7 +4,7 @@ import { ActivatedRoute, Router, ParamMap} from '@angular/router';
 import { Course } from '../..//models/course.model';
 
 @Component({
-  selector: 'app-edit-course',
+  selector: 'appedit-course-',
   templateUrl: './edit-course.component.html',
   styleUrls: ['./edit-course.component.css']
 })
