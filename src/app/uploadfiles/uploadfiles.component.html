@@ -4,18 +4,21 @@
         <div class="col-sm-8 mt-3">
          
 
-          <form class="mt-4"
+          <form 
+          class="mt-4"
            action="/upload"
             method="post"
             enctype="multipart/form-data">
             <div class="form-group">
               <input
+                required [(ngModel)]="file"
                 type="file"
                 name="file"
                 id="input-files"
                 class="form-control-file border" />
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            
+            <button type="submit" (click)="newTutorial()"  class="btn btn-primary">Submit</button>
           </form>
         </div>
       </div>

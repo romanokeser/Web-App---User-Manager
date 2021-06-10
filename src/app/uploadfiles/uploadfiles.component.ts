@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-
+import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { HttpClient, HttpRequest, HttpEvent } from '@angular/common/http';
 import { UploadFilesService } from '../services/upload-files.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -15,10 +15,14 @@ export class UploadfilesComponent implements OnInit {
   currentFile?: File;
   progress = 0;
   message = '';
+  userForm: FormGroup;
 
   fileInfos?: Observable<any>;
 
-  constructor(private uploadService: UploadFilesService) { }
+  file?: File;
+
+
+  constructor(private uploadService: UploadFilesService,private http: HttpClient) { }
 
   ngOnInit() {
     this.fileInfos = this.uploadService.getFiles();
@@ -30,7 +34,10 @@ export class UploadfilesComponent implements OnInit {
 
 
   newTutorial(): void {
-      console.log('my nigga');
+      this.http.post('localhost:8080/upload', this.file).subscribe((data)=>{
+      return data;
+      console.log('err');
+      });
   }
 
   upload(): void {
