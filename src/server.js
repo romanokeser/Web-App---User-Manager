@@ -43,8 +43,8 @@ app.get("/", (req, res) => {
 require("./app/routes/turorial.routes")(app);
 require("./app/routes/evaluation.routes")(app);
 require("./app/routes/students.routes")(app);
-require("./app/routes/course.routes");
-require("./app/routes/web")(app);
+require("./app/routes/course.routes")(app);
+
 //set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

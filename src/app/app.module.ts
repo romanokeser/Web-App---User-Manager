@@ -21,7 +21,7 @@ import { EditGradeComponent } from './grade/edit-grade/edit-grade.component';
 import { DeleteGradeComponent } from './grade/delete-grade/delete-grade.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule} from '@angular/material/grid-list';
 import { UploadFilesComponent } from './components/upload-files/upload-files.component';
 import { ListEvaluationComponent } from './evaluation/list-evaluation/list-evaluation.component';
 import { StudentsComponent } from './students/students.component';
